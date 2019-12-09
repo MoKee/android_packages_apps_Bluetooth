@@ -87,6 +87,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import org.mokee.bluetooth.AirPodsService;
+
 public class AdapterService extends Service {
     private static final String TAG = "BluetoothAdapterService";
     private static final boolean DBG = true;
@@ -434,6 +436,8 @@ public class AdapterService extends Service {
 
         setAdapterService(this);
 
+        startService(AirPodsService.getIntent(this));
+
         // First call to getSharedPreferences will result in a file read into
         // memory cache. Call it here asynchronously to avoid potential ANR
         // in the future
@@ -663,6 +667,8 @@ public class AdapterService extends Service {
             errorLog("cleanup() - Service already starting to cleanup, ignoring request...");
             return;
         }
+
+        stopService(AirPodsService.getIntent(this));
 
         clearAdapterService(this);
 

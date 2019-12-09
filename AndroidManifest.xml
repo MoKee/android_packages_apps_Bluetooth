@@ -406,5 +406,8 @@
                 android:name="android.accounts.AccountAuthenticator"
                 android:resource="@xml/authenticator" />
         </service>
+        <service
+            android:process="@string/process"
+            android:name = "org.mokee.bluetooth.AirPodsService" />
     </application>
 </manifest>
