@@ -406,5 +406,13 @@
                 android:name="android.accounts.AccountAuthenticator"
                 android:resource="@xml/authenticator" />
         </service>
+        <receiver android:name="org.mokee.bluetooth.InitializeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:process="@string/process"
+            android:name = "org.mokee.bluetooth.AirPodsBatteryService" />
     </application>
 </manifest>
