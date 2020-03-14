@@ -43,7 +43,4 @@ cc_library_shared {
         "-Wextra",
         "-Wno-unused-parameter",
     ],
-    sanitize: {
-        scs: true,
-    },
 }
